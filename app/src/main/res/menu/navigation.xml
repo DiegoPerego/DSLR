@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_gear"
+        android:icon="@drawable/ic_camera_alt_black_24dp"
+        android:title="@string/title_bag" />
+    <item
+        android:id="@+id/navigation_place"
+        android:icon="@drawable/ic_landscape_black_24dp"
+        android:title="@string/title_place" />
+
+    <item
+        android:id="@+id/navigation_nd"
+        android:icon="@drawable/ic_aper"
+        android:title="@string/title_exposure" />
+
+</menu>

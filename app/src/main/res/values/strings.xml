@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DSLR</string>
+    <string name="title_bag">My Gear</string>
+    <string name="title_place">Favourite Place</string>
+    <string name="title_exposure">Long Exposure</string>
+    <string name="first_map">Add Your First Place !</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_insert_place">Map</string>
+</resources>

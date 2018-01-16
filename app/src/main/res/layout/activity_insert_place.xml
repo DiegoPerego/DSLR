@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="e.diego.dslr.InsertPlaceActivity">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/eName"
+        android:layout_marginTop="18dp" />
+
+    <EditText
+        android:id="@+id/eName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:hint="Insert Here Your Location Name"
+        android:inputType="textAutoCorrect"
+        android:textAlignment="textStart" />
+
+    <Button
+        android:id="@+id/bSavePlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/map"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="monospace"
+        android:onClick="onSavePlace"
+        android:text="Save Place"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textStyle="italic" />
+
+</RelativeLayout>
