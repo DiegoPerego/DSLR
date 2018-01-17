@@ -11,10 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import e.diego.dslr.Fragment.FavouritePlace;
-import e.diego.dslr.Fragment.FavouritePlaceRecycler;
 import e.diego.dslr.Fragment.LongExpo;
 import e.diego.dslr.Fragment.MyGear;
-import e.diego.dslr.Model.Map;
+
 import e.diego.dslr.Util.ConstantsUtils;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-            fragmentManager = getSupportFragmentManager();
+            fragmentManager =  getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_gear:
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == ConstantsUtils.REQUEST_CODE_MAP) {
             if (resultCode == Activity.RESULT_OK)
-                fragmentTransaction.replace(R.id.frameLayout, new FavouritePlaceRecycler()).commit();
+                fragmentTransaction.replace(R.id.frameLayout, new FavouritePlace()).commit();
         }
     }
 

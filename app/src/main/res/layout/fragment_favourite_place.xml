@@ -7,32 +7,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/tWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:fontFamily="serif"
-        android:text="@string/first_map"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="italic" />
-
-    <ImageView
-        android:id="@+id/imageMap"
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        android:layout_below="@+id/tWelcome"
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="false"
-        android:cropToPadding="true"
-        android:paddingBottom="10dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/fotobella" />
-
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabMap"
         android:layout_width="wrap_content"
@@ -46,5 +20,51 @@
         android:tint="@color/cardview_light_background"
         app:backgroundTint="@color/colorPrimary"
         app:fabSize="normal" />
+
+    <RelativeLayout
+        android:id="@+id/second_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/starting_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageMap"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_below="@+id/tWelcome"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="false"
+            android:cropToPadding="true"
+            android:paddingBottom="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/fotobella" />
+
+        <TextView
+            android:id="@+id/tWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:fontFamily="serif"
+            android:text="@string/first_map"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="italic" />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
