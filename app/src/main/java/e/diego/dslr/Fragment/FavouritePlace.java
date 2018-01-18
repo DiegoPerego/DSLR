@@ -21,9 +21,11 @@ import java.util.List;
 import e.diego.dslr.Adapter.MapAdapter;
 import e.diego.dslr.InsertPlaceActivity;
 
-import e.diego.dslr.Model.Map;
+import e.diego.dslr.Model.MapList;
+import e.diego.dslr.Model.MyMap;
 import e.diego.dslr.R;
 import e.diego.dslr.Util.ConstantsUtils;
+import e.diego.dslr.Util.InternalStorage;
 
 public class FavouritePlace extends Fragment {
     private static final String ARG_PARAM1 = "param1";
@@ -36,13 +38,13 @@ public class FavouritePlace extends Fragment {
     private ImageView imageView;
 
     private MapAdapter mapAdapter;
-    private List<Map> maps;
     private RecyclerView recyclerViewMap;
     private LinearLayoutManager layoutManager;
 
     private RelativeLayout first;
     private RelativeLayout second;
 
+    private MapList mapList;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +67,7 @@ public class FavouritePlace extends Fragment {
             mParam = getArguments().getString(ARG_PARAM1);
             mParams = getArguments().getString(ARG_PARAM2);
         }
-        maps = new ArrayList<>();
+        mapList = new MapList();
     }
 
     @Override
@@ -84,12 +86,14 @@ public class FavouritePlace extends Fragment {
         recyclerViewMap.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerViewMap.setLayoutManager(layoutManager);
-        mapAdapter = new MapAdapter(getContext(), maps);
+        mapAdapter = new MapAdapter(getContext(), mapList);
         recyclerViewMap.setAdapter(mapAdapter);
 
-        if (maps.size()!=0){
+        MapList mapList = (MapList) InternalStorage.readObject(getContext(), ConstantsUtils.MAP_EXTERNAL_STORAGE);
+        if (mapList != null) {
             first.setVisibility(View.GONE);
             second.setVisibility(View.VISIBLE);
+            mapAdapter.notifyDataSetChanged();
         }
 
         mapsFab.setOnClickListener(new View.OnClickListener() {
@@ -130,13 +134,14 @@ public class FavouritePlace extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == ConstantsUtils.REQUEST_CODE_MAP) {
+        if (requestCode == ConstantsUtils.REQUEST_CODE_MAP) {
             if (resultCode == Activity.RESULT_OK) {
 
                 first.setVisibility(View.GONE);
                 second.setVisibility(View.VISIBLE);
-                Map map = (Map) data.getSerializableExtra(ConstantsUtils.MAP_OBJECT);
-                maps.add(map);
+                MyMap myMap = (MyMap) data.getSerializableExtra(ConstantsUtils.MAP_OBJECT);
+                mapList.addMyMap(myMap);
+                InternalStorage.writeObject(getContext(), ConstantsUtils.MAP_EXTERNAL_STORAGE, mapList);
                 mapAdapter.notifyDataSetChanged();
             }
         }

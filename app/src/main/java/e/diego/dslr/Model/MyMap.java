@@ -13,19 +13,19 @@ import java.util.Locale;
  * Created by Diego on 27/12/2017.
  */
 
-public class Map implements Serializable{
+public class MyMap implements Serializable{
 
     private double latitude;
     private double longitude;
     private String namePlace;
 
-    public Map(double latitude, double longitude, String namePlace) {
+    public MyMap(double latitude, double longitude, String namePlace) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.namePlace = namePlace;
     }
 
-    public Map() {
+    public MyMap() {
         this.latitude = 0.0;
         this.longitude = 0.0;
         this.namePlace = null;

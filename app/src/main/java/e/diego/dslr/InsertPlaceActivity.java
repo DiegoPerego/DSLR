@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-import e.diego.dslr.Model.Map;
+import e.diego.dslr.Model.MyMap;
 import e.diego.dslr.Util.ConstantsUtils;
 
 public class InsertPlaceActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener{
@@ -30,7 +30,7 @@ public class InsertPlaceActivity extends AppCompatActivity implements OnMapReady
     private GoogleMap mMap;
     private Marker marker;
     private EditText name;
-    private Map map;
+    private MyMap myMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class InsertPlaceActivity extends AppCompatActivity implements OnMapReady
         if (!name.getText().toString().equals("") && marker != null){
             initMap();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.putExtra(ConstantsUtils.MAP_OBJECT, map);
+            intent.putExtra(ConstantsUtils.MAP_OBJECT, myMap);
             setResult(Activity.RESULT_OK, intent);
             finish();
 
@@ -73,11 +73,11 @@ public class InsertPlaceActivity extends AppCompatActivity implements OnMapReady
     }
 
     public void initMap(){
-        map = new Map();
+        myMap = new MyMap();
 
-        map.setLatitude(marker.getPosition().latitude);
-        map.setLongitude(marker.getPosition().longitude);
-        map.setNamePlace(name.getText().toString());
+        myMap.setLatitude(marker.getPosition().latitude);
+        myMap.setLongitude(marker.getPosition().longitude);
+        myMap.setNamePlace(name.getText().toString());
     }
 
     @Override
