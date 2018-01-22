@@ -2,42 +2,63 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="160dp">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         app:cardCornerRadius="10dp"
-        app:cardElevation="@dimen/cardview_compat_inset_shadow">
+        app:cardElevation="@dimen/cardview_compat_inset_shadow"
+        app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:id="@+id/placeRel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tNamePlace"
+            <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="18dp"
-                android:fontFamily="serif"
-                android:text="Place Name:"
-                android:textSize="16sp"
-                android:textStyle="bold|italic" />
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:padding="15dp"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/map_marker" />
 
-            <TextView
-                android:id="@+id/tNamePlaceVal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/tNamePlace"
-                android:layout_below="@+id/tNamePlace"
-                android:layout_marginTop="14dp"
-                android:paddingRight="5dp"
-                android:text="Text" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/imageView">
+
+                <TextView
+                    android:id="@+id/tNamePlaceVal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tNamePlace"
+                    android:layout_alignBottom="@+id/tNamePlace"
+                    android:layout_marginStart="9dp"
+                    android:layout_toEndOf="@+id/tNamePlace"
+                    android:paddingRight="5dp"
+                    android:text="Text" />
+
+                <TextView
+                    android:id="@+id/tNamePlace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="serif"
+                    android:text="Place Name:"
+                    android:textSize="16sp"
+                    android:textStyle="bold|italic" />
+            </RelativeLayout>
+
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </RelativeLayout>

@@ -31,4 +31,10 @@ public class MapList implements Serializable{
     public void  addMyMap(MyMap map){
         mapList.add(map);
     }
+
+    public void switchingMapList (MapList enter, MapList exit){
+        for (int i =0; i<enter.getMapList().size(); i++){
+            exit.getMapList().add(enter.getMapList().get(i));
+        }
+    }
 }

@@ -89,11 +89,15 @@ public class FavouritePlace extends Fragment {
         mapAdapter = new MapAdapter(getContext(), mapList);
         recyclerViewMap.setAdapter(mapAdapter);
 
-        MapList mapList = (MapList) InternalStorage.readObject(getContext(), ConstantsUtils.MAP_EXTERNAL_STORAGE);
-        if (mapList != null) {
+        MapList listMap = (MapList) InternalStorage.readObject(getContext(), ConstantsUtils.MAP_EXTERNAL_STORAGE);
+        if (listMap != null) {
+
             first.setVisibility(View.GONE);
             second.setVisibility(View.VISIBLE);
-            mapAdapter.notifyDataSetChanged();
+
+            listMap.switchingMapList(listMap, mapList);
+            MapAdapter adapter = new MapAdapter(getContext(), mapList);
+            recyclerViewMap.setAdapter(adapter);
         }
 
         mapsFab.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +146,8 @@ public class FavouritePlace extends Fragment {
                 MyMap myMap = (MyMap) data.getSerializableExtra(ConstantsUtils.MAP_OBJECT);
                 mapList.addMyMap(myMap);
                 InternalStorage.writeObject(getContext(), ConstantsUtils.MAP_EXTERNAL_STORAGE, mapList);
-                mapAdapter.notifyDataSetChanged();
+                mapAdapter = new MapAdapter(getContext(), mapList);
+                recyclerViewMap.setAdapter(mapAdapter);
             }
         }
     }
