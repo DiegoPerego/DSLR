@@ -18,7 +18,7 @@
         android:clickable="true"
         android:src="@android:drawable/ic_input_add"
         android:tint="@color/cardview_light_background"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="#3366ff"
         app:fabSize="normal" />
 
     <RelativeLayout
